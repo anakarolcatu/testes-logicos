@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequencia Fibonacci</title>
+    <script>
+        function pertenceFibonacci(num) {
+            let fib1 = 0, fib2 = 1;
+            
+            while (fib2 < num) {
+                let temp = fib2;
+                fib2 = fib1 + fib2;
+                fib1 = temp;
+            }
+            
+            if (fib2 === num) {
+                return `O número ${num} pertence à sequência de Fibonacci.`;
+            } else {
+                return `O número ${num} não pertence à sequência de Fibonacci.`;
+            }
+        }
+
+        function verificarNumero() {
+            let numero = parseInt(prompt("Informe um número: "), 10);
+            let resultado = pertenceFibonacci(numero);
+            document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+</head>
+<body>
+    <h1>Verificador de Fibonacci</h1>
+    <button onclick="verificarNumero()">Verificar Número</button>
+    <p id="resultado"></p>
+</body>
+</html>
