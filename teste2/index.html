@@ -9,7 +9,7 @@
             let letraA = "a";
             let fraseSemAcento = frase.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
             let total = [...fraseSemAcento].filter(letra => letra.toLowerCase() === letraA).length;
-            return `A frase tem ${total} letras 'A' ou 'a'.`;
+            return `A frase tem ${total} letras 'A'.`;
         }
         
         function temLetra() {
