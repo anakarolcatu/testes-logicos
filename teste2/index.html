@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Letras</title>
+    <script>
+        function contarLetraA(frase) {
+            let letraA = "a";
+            let fraseSemAcento = frase.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+            let total = [...fraseSemAcento].filter(letra => letra.toLowerCase() === letraA).length;
+            return `A frase tem ${total} letras 'A' ou 'a'.`;
+        }
+        
+        function temLetra() {
+            let frase = prompt("Informe uma frase ou palavra: ");
+            let resultado = contarLetraA(frase); 
+            document.getElementById("resultado").textContent = resultado;  
+        }
+    </script>
+</head>
+<body>
+    <h1>Verificador de Letra</h1>
+    <button onclick="temLetra()">Verificar frase</button>
+    <p id="resultado"></p>
+</body>
+</html>
